@@ -7,6 +7,7 @@ public class PipeSpawner : MonoBehaviour
     [SerializeField] float maxTime = 1.5f;      // 몇 초마다 생성할건지
     [SerializeField] float heightRange = 0.5f;  // 생성위치 y의 랜덤한 범위
     [SerializeField] GameObject pipePrefab;     // 파이프의 프레팝 연결
+    [SerializeField] GameObject redPipePrefab;  // 빨간 파이프
     float timer;
     void Update()
     {
@@ -23,12 +24,14 @@ public class PipeSpawner : MonoBehaviour
     }
     void SpawnPipe()
     {
+        // 랜덤으로 녹색, 빨간색 파이프 선택
+        GameObject colorPipe = (Random.Range(0, 100) > 10) ? pipePrefab : redPipePrefab;
         // 랜덤으로 y값을 정해서, 생성될 파이프의 위치 정하기
         Vector3 spawnPos = transform.position + new Vector3(
             0, Random.Range(-heightRange, heightRange)
         );
         // Instantiate로 생성, 생성된 객체는 pipe라는 GameObject에 할당
-        GameObject pipe = Instantiate(pipePrefab, spawnPos, Quaternion.identity);
+        GameObject pipe = Instantiate(colorPipe, spawnPos, Quaternion.identity);
         // 5초 뒤에 pipe 객체 파괴
         Destroy(pipe, 5f);
     }

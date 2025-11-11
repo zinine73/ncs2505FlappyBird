@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 1223830864, guid: f92bfd3151e358a4fb695ff35f502aed, type: 3}
+  m_Sprite: {fileID: 157763347, guid: f92bfd3151e358a4fb695ff35f502aed, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -185,10 +185,10 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 1101117713, guid: f92bfd3151e358a4fb695ff35f502aed, type: 3}
+  m_Sprite: {fileID: 1907403329, guid: f92bfd3151e358a4fb695ff35f502aed, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
-  m_FlipY: 0
+  m_FlipY: 1
   m_DrawMode: 0
   m_Size: {x: 0.26, y: 1.6}
   m_AdaptiveModeThreshold: 0.5
@@ -235,7 +235,7 @@ GameObject:
   - component: {fileID: 2800838619773318763}
   - component: {fileID: 4734594185500783763}
   m_Layer: 0
-  m_Name: Pipe
+  m_Name: RedPipe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -309,4 +309,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6eeb9a34d5e7fa46972d579d54b1cff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreValue: 1
+  scoreValue: 5

@@ -437,6 +437,7 @@ MonoBehaviour:
   maxTime: 1.5
   heightRange: 0.5
   pipePrefab: {fileID: 1474034392928982761, guid: da0847c73cd56ae47b83c662ec37e7b9, type: 3}
+  redPipePrefab: {fileID: 1474034392928982761, guid: a6c64a9a3e4b9fc4bb26bdfa365edcce, type: 3}
 --- !u!4 &531635493
 Transform:
   m_ObjectHideFlags: 0
