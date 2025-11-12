@@ -11,6 +11,10 @@ public class PipeSpawner : MonoBehaviour
     float timer;
     void Update()
     {
+        // 게임상태가 PLAY일때만 파이프를 생성하게 한다
+        if (GameManager.Instance.GameState
+            != GameManager.State.PLAY) return;
+            
         // timer가 maxTime을 넘으면
         if (timer > maxTime)
         {

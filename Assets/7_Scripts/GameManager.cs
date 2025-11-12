@@ -8,14 +8,18 @@ public class GameManager : MonoBehaviour
     // 게임 상태를 저장할 enum
     public enum State
     {
-        TITLE,      // 0
-        READY,      // 1
-        PLAY,       // 2
-        GAMEOVER,   // 3
-        BESTSCORE   // 4
+        TITLE,      // 0 : 0
+        READY,      // 1 : 1
+        PLAY,       // 2 : 0
+        GAMEOVER,   // 3 : 1
+        BESTSCORE   // 4 : 0
     }
     public static GameManager Instance;
-    [SerializeField] GameObject gameOverUI;
+    [SerializeField] SpriteRenderer background;
+    [SerializeField] Animator floorAnim;
+    [SerializeField] GameObject[] stateUI;
+    [SerializeField] Sprite[] bgSprite;
+
     State gameState;    // 게임상태를 저장할 변수
     public State GameState => gameState;
     void Awake()
@@ -32,6 +36,17 @@ public class GameManager : MonoBehaviour
     void ChangeState(State value)
     {
         gameState = value;
+        // stateUI에 있는 모든 UI를 끈다
+        foreach (var item in stateUI)
+        {
+            item.SetActive(false);
+        }
+        // State값을 공통으로 사용하므로 미리 int값으로 변환
+        int temp = (int)gameState;
+        // 해당하는 Background sprite 연결
+        background.sprite = bgSprite[temp % 2];
+        // 해당하는 stateUI를 켠다
+        stateUI[temp].SetActive(true);
     }
     public void GameTitle() => ChangeState(State.TITLE);
     public void GameReady()
@@ -42,9 +57,10 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         ChangeState(State.GAMEOVER);
-        gameOverUI.SetActive(true);
         // 게임 시간을 멈춘다
-        Time.timeScale = 0f;
+        //Time.timeScale = 0f;
+        // 바닥 애니메이션을 멈춘다
+        floorAnim.enabled = false;
     }
     public void GameBestScore() => ChangeState(State.BESTSCORE);
 

@@ -8,7 +8,11 @@ public class MovePipe : MonoBehaviour
 
     void Update()
     {
-        // 파이프의 위치를 speed만큼 좌로 이동
-        transform.position += Vector3.left * speed * Time.deltaTime;     
+        // 게임 상태가 PLAY일때만 움직이도록
+        if (GameManager.Instance.GameState == GameManager.State.PLAY)
+        {
+            // 파이프의 위치를 speed만큼 좌로 이동
+            transform.position += Vector3.left * speed * Time.deltaTime;
+        }
     }
 }
