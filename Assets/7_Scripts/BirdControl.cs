@@ -8,6 +8,8 @@ public class BirdControl : MonoBehaviour
 {
     [SerializeField] float velocity = 1.5f;
     [SerializeField] float rotateSpeed = 10f;
+    [SerializeField] Animator flapAnim;
+    [SerializeField] Animator birdAnim;
     Rigidbody2D rb;
     GameManager gmi;
 
@@ -54,6 +56,17 @@ public class BirdControl : MonoBehaviour
 
         gmi.GameOver();
         // 새의 Flap 애니메이션을 멈춘다
-        GetComponent<Animator>().enabled = false;
+        //GetComponent<Animator>().enabled = false;
+        flapAnim.enabled = false;
+    }
+    public void BirdReady()
+    {
+        // 새를 뒤로 움직인다
+        birdAnim.SetTrigger("Ready");
+    }
+    public void OffBirdAnimator()
+    {
+        // 새의 애니메이터를 끈다
+        birdAnim.enabled = false;
     }
 }

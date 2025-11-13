@@ -36,7 +36,7 @@ public class PipeSpawner : MonoBehaviour
         );
         // Instantiate로 생성, 생성된 객체는 pipe라는 GameObject에 할당
         GameObject pipe = Instantiate(colorPipe, spawnPos, Quaternion.identity);
-        // 5초 뒤에 pipe 객체 파괴
-        Destroy(pipe, 5f);
+        // 7초 뒤에 pipe 객체 파괴
+        Destroy(pipe, 7f);
     }
 }
