@@ -43,6 +43,7 @@ public class BirdControl : MonoBehaviour
             {
                 // 나는 소리
                 gmi.PlayAudio(acWing);
+                // 위로 이동
                 rb.velocity = Vector2.up * velocity;
             }
         }
@@ -59,6 +60,7 @@ public class BirdControl : MonoBehaviour
         // 게임 PLAY 일때만 충돌 감지
         if (gmi.GameState != GMState.PLAY) return;
 
+        // 게임 오버
         gmi.GameOver();
         // 새의 Flap 애니메이션을 멈춘다
         //GetComponent<Animator>().enabled = false;
